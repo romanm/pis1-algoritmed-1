@@ -26,6 +26,7 @@ init_am_directive.init_registry1=function($scope, $http){
 			this.data.sql='sql2.users.insert'
 			this.data.doctype=1//patient
 			this.data.role='ROLE_PATIENT'
+			this.data.uuid='uuid'
 			this.data.password = '{noop}'+this.data.password1;
 			var thisData = this.data;
 			['family_name', 'first_name', 'second_name'].forEach(function(v){
@@ -35,6 +36,10 @@ init_am_directive.init_registry1=function($scope, $http){
 			})
 			$http.post('/r/update2_sql_with_param', this.data).then(function(response) {
 				console.log(response.data);
+				console.log('send mail to new user for activate login');
+				$http.post('/r/send_eMail', response.data).then(function(response) {
+					console.log(response.data);
+				});
 			});
 		}
 	};

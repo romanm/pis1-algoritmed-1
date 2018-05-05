@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -138,6 +139,8 @@ public class ExecuteSqlBlock {
 
 			for (Integer key : nextDbMap.keySet())
 				data.put("nextDbId"+key, nextDbId());
+			if(data.containsKey("uuid"))
+				data.put("uuid", UUID.randomUUID());
 			System.err.println(data);
 		}
 		return sql_from_env;

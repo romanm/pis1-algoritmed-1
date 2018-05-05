@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class CommonDb2Rest  extends Db2Common{
+public class CommonDb2Rest extends Db2Common {
 	@GetMapping("/r/read2_sql_with_param")
 	public @ResponseBody Map<String, Object> read2_sql_with_param(
 			@RequestParam(value = "sql", required = true) String sql
