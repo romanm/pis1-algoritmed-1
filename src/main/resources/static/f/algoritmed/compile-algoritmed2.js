@@ -10,8 +10,7 @@ app.controller('ControllerApp1', function($scope, $http) {
 
 init_am_directive.init_programRuns=function($scope, $http){
 	console.log('-------init_am_directive.init_programRuns--------');
-	onLoadPage();
-	$scope.request=request;
+	onLoadPage($scope);
 	console.log(request.viewKey)
 	if(init_am_directive['init_'+request.viewKey])
 		init_am_directive['init_'+request.viewKey]($scope, $http);
@@ -19,11 +18,11 @@ init_am_directive.init_programRuns=function($scope, $http){
 		$scope.principal = response.data.principal;
 //		console.log($scope.principal)
 	});
-
 }
 
-function onLoadPage(){
-	request = {}
+function onLoadPage($scope){
+	$scope.request={};
+	request = $scope.request
 	request.parameters={};
 //	console.log(window.location);
 	if(window.location.search.split('?')[1]){

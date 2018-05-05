@@ -3,14 +3,24 @@ init_am_directive.init_registry1=function($scope, $http){
 	$scope.registry={data:{},error:{}};
 	
 	$scope.registry.saveRegistry=function(){
+		var isToSave = true;
 		if(!this.data.email){
+			isToSave = false;
 			this.error.email='Введіть ваш eMail. Після успішної реєстрації вам буде вислано лист для активації входу в систему.'
+		}
+		if(isToSave){
+			this.data.sql='sql2.users.insert'
+			this.data.doctype=1
+			this.data.password = '{noop}'+this.data.password1;
+			['family_name','first_name'].forEach(function(v){
+				if(!this.data[v]) this.data[v]=''
+			})
+			$http.post('/r/update2_sql_with_param', this.data).then(function(response) {
+				console.log(response.data);
+			});
 		}
 	};
 	var url_read_sql_with_param = '/r/read2_sql_with_param';
-	$scope.registry.fx=function(){
-	}
-
 	$scope.registry.checkUserName=function(){
 		var thisDataObj = this;
 		console.log(thisDataObj.data.username)

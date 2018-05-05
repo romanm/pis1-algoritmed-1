@@ -119,12 +119,14 @@ public class ExecuteSqlBlock {
 			HashMap<Integer, Integer> nextDbMap = new HashMap<>();
 			for (int i = 1; i < split_nextDbId.length; i++) {
 				String s1 = split_nextDbId[i];
-				String s2 = s1.split(" ")[0];
+				String s2 = s1.split("\\s")[0];
 				s2=s2
 					.replaceAll(",", "")
 					.replaceAll("\\)", "")
 					.replaceAll(";", "")
 					;
+				System.err.println("---------------128----------");
+				System.err.println(s2);
 
 				int nextDbKey = Integer.parseInt(s2);
 				nextDbMap.put(nextDbKey, nextDbKey);
