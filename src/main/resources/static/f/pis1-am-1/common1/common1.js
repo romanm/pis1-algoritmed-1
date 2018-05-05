@@ -4,6 +4,21 @@ init_am_directive.init_registry1=function($scope, $http){
 	
 	$scope.registry.saveRegistry=function(){
 		var isToSave = true;
+		isToSave = false;
+
+		if(!this.data.birth_date){
+			if(!this.data.bd){
+				isToSave = false;
+				this.error.birth_date='Дата народження обов´язкова'
+			}else{
+				delete this.error.birth_date
+				console.log(this.data.birth_date1)
+				console.log(this.data.bd)
+				var x = this.data.bd.toISOString().replace('T',' ').replace('Z','')
+				console.log(x)
+			}
+
+		}
 		if(!this.data.email){
 			isToSave = false;
 			this.error.email='Введіть ваш eMail. Після успішної реєстрації вам буде вислано лист для активації входу в систему.'
@@ -43,7 +58,7 @@ init_am_directive.init_registry1=function($scope, $http){
 		if(m){
 			y = m[5]*100+m[6]*1;
 		}else{
-			m = dateString.match(/([1-9]|1\d|2\d|3[01])([-|,|.| |\/]+)([1-9]|1[012]|0[1-9])([-|,|.| |\/]+)(\d{2})/)
+			m = dateString.match(/([1-9]|1\d|2\d|3[01])([-|,|.| |\/]+)([1-9]|1[012]|0[1-9])([-|,|.| |\/]+)(\d{1,2})/)
 			if(m){
 				var y0 = m[5]*1;
 				y = (y0>y?1900:2000) + y0

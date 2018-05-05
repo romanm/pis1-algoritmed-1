@@ -59,8 +59,8 @@
 	<div class="w3-row">
 		<div class="w3-col m3 l3 s3 ">дата народження:</div>
 		<div class="w3-col m9 l9 s9">
-			<input ng-model="registry.data.birth_date"
-				ng-blur="registry.dateControlle('birth_date')"
+			<input ng-model="registry.data.birth_date1"
+				ng-blur="registry.dateControlle('birth_date1')"
 				placeholder="дд-мм-рррр дата народженя" class="w3-border">
 			{{registry.data.bd|date:'mediumDate'}}
 			<div class="w3-red w3-small" ng-if="registry.error.birth_date">
@@ -68,7 +68,7 @@
 		</div>
 	</div>
 	<p>
-		<input class="w3-btn w3-border w3-round" value="Запис"
-			ng-click="registry.saveRegistry()">
+		<button class="w3-btn w3-border w3-round"
+			ng-click="registry.saveRegistry()">Запис</button>
 	</p>
 </form>
