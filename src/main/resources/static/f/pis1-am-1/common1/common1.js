@@ -4,8 +4,6 @@ init_am_directive.init_registry1=function($scope, $http){
 	
 	$scope.registry.saveRegistry=function(){
 		var isToSave = true;
-		isToSave = false;
-
 		if(!this.data.birth_date){
 			if(!this.data.bd){
 				isToSave = false;
@@ -14,8 +12,9 @@ init_am_directive.init_registry1=function($scope, $http){
 				delete this.error.birth_date
 				console.log(this.data.birth_date1)
 				console.log(this.data.bd)
-				var x = this.data.bd.toISOString().replace('T',' ').replace('Z','')
-				console.log(x)
+//				this.data.birth_date = this.data.bd.toISOString().replace('T',' ').replace('Z','')
+				this.data.birth_date = this.data.bd.toISOString().split('T')[0]
+				console.log(this.data.birth_date)
 			}
 
 		}
@@ -27,8 +26,11 @@ init_am_directive.init_registry1=function($scope, $http){
 			this.data.sql='sql2.users.insert'
 			this.data.doctype=1
 			this.data.password = '{noop}'+this.data.password1;
-			['family_name','first_name'].forEach(function(v){
-				if(!this.data[v]) this.data[v]=''
+			var thisData = this.data;
+			['family_name', 'first_name', 'second_name'].forEach(function(v){
+				console.log(v)
+				if(!thisData[v]) 
+					thisData[v]=''
 			})
 			$http.post('/r/update2_sql_with_param', this.data).then(function(response) {
 				console.log(response.data);
@@ -64,6 +66,7 @@ init_am_directive.init_registry1=function($scope, $http){
 				y = (y0>y?1900:2000) + y0
 			}
 		}
+		console.log(m)
 		if(m){
 			d1.setMonth(m[3]*1-1);
 			d1.setDate(m[1]);
@@ -73,9 +76,9 @@ init_am_directive.init_registry1=function($scope, $http){
 			+'-'+(mm<10?'0':'')+mm+'-'+d1.getFullYear();
 			this.data[key] = ddmmyyyy;
 			this.data.bd = d1;
-			delete this.error[key];
+			delete this.error.birth_date;
 		}else{
-			this.error[key]='Введіть дату в форматі "день-місяць-рік", розділяючі символи між цифрами -/., або пробіл.';
+			this.error.birth_date='Введіть дату в форматі "день-місяць-рік", розділяючі символи між цифрами -/., або пробіл.';
 		}
 	}
 }

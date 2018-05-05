@@ -2,7 +2,7 @@
 <h1>Регістрація в системі</h1>
 <form>
 	<div class="w3-row">
-		<div class="w3-col m3 l3 s3 w3-small">Ім’я користувача</div>
+		<div class="w3-col m3 l3 s3 w3-small">Ім’я користувача:</div>
 		<div class="w3-col m9 l9 s9">
 			<input class="w3-border am-width-100pr"
 				ng-blur="registry.checkUserName()" ng-model="registry.data.username"
@@ -70,5 +70,9 @@
 	<p>
 		<button class="w3-btn w3-border w3-round"
 			ng-click="registry.saveRegistry()">Запис</button>
+		<a class="w3-btn w3-border w3-round"> <i
+			class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> наступна
+			сторінка
+		</a>
 	</p>
 </form>
