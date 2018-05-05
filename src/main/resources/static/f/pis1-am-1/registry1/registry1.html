@@ -22,7 +22,10 @@
 		<div class="w3-col m3 l3 s3 w3-small">Пароль підтвердження:</div>
 		<div class="w3-col m9 l9 s9">
 			<input ng-model="registry.data.password2" placeholder="Пароль"
+			ng-blur="registry.passwordControlle()"
 				class="w3-border am-width-100pr" type="password">
+				<div class="w3-red w3-small">
+        {{registry.error.password}}</div>
 		</div>
 	</div>
 	<div class="w3-row">

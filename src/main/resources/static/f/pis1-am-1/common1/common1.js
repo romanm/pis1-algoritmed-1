@@ -24,7 +24,8 @@ init_am_directive.init_registry1=function($scope, $http){
 		}
 		if(isToSave){
 			this.data.sql='sql2.users.insert'
-			this.data.doctype=1
+			this.data.doctype=1//patient
+			this.data.role='ROLE_PATIENT'
 			this.data.password = '{noop}'+this.data.password1;
 			var thisData = this.data;
 			['family_name', 'first_name', 'second_name'].forEach(function(v){
@@ -37,7 +38,9 @@ init_am_directive.init_registry1=function($scope, $http){
 			});
 		}
 	};
+
 	var url_read_sql_with_param = '/r/read2_sql_with_param';
+
 	$scope.registry.checkUserName=function(){
 		var thisDataObj = this;
 		console.log(thisDataObj.data.username)
@@ -50,6 +53,17 @@ init_am_directive.init_registry1=function($scope, $http){
 			}
 		});
 	}
+	
+	$scope.registry.passwordControlle=function(){
+		console.log(this.data.password1)
+		console.log(this.data.password2)
+		if(this.data.password1!=this.data.password2){
+			this.error.password='Пароль повторне введенн не співпадає з першим.'
+		}else{
+			delete this.error.password
+		}
+	}
+
 
 	$scope.registry.dateControlle=function(key){
 		var dateString = this.data[key];
@@ -81,4 +95,5 @@ init_am_directive.init_registry1=function($scope, $http){
 			this.error.birth_date='Введіть дату в форматі "день-місяць-рік", розділяючі символи між цифрами -/., або пробіл.';
 		}
 	}
+
 }

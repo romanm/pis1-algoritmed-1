@@ -59,7 +59,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		inMemoryAuthentication.withUser("user").password("password").roles("USER");
 		inMemoryAuthentication.withUser("test").password("test").roles("USER");
 		 * */
-
 		auth.jdbcAuthentication().dataSource(dataSourceDb2)
 		.usersByUsernameQuery(
 				"SELECT username,password, enabled FROM users WHERE username=?")
