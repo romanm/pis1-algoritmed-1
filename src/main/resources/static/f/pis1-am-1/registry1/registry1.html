@@ -1,0 +1,74 @@
+<div ng-include="'/f/algoritmed/lib/head1.html'"></div>
+<h1>Регістрація в системі</h1>
+<form>
+	<div class="w3-row">
+		<div class="w3-col m3 l3 s3 w3-small">Ім’я користувача</div>
+		<div class="w3-col m9 l9 s9">
+			<input class="w3-border am-width-100pr"
+				ng-blur="registry.checkUserName()" ng-model="registry.data.username"
+				placeholder="Логін ім'я" type="text">
+				<div class="w3-red w3-small" ng-if="registry.error.username">
+        {{registry.error.username}}</div>
+		</div>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col m3 l3 s3 ">Пароль:</div>
+		<div class="w3-col m9 l9 s9">
+			<input ng-model="registry.data.password" placeholder="Пароль"
+				class="w3-border am-width-100pr" type="password">
+		</div>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col m3 l3 s3 w3-small">Пароль підтвердження:</div>
+		<div class="w3-col m9 l9 s9">
+			<input ng-model="registry.data.password2" placeholder="Пароль"
+				class="w3-border am-width-100pr" type="password">
+		</div>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col m3 l3 s3 w3-small">Електронна пошта:</div>
+		<div class="w3-col m9 l9 s9">
+			<input ng-model="registry.data.email" placeholder="email"
+				class="w3-border am-width-100pr">
+			<div class="w3-red w3-small" ng-if="registry.error.email">
+				{{registry.error.email}}</div>
+		</div>
+	</div>
+	<hr/>
+	<div class="w3-row">
+    <div class="w3-col m3 l3 s3 ">Фамілія:</div>
+    <div class="w3-col m9 l9 s9">
+      <input ng-model="registry.data.family_name" placeholder="Фамілія"
+        class="w3-border am-width-100pr" >
+    </div>
+  </div>
+  <div class="w3-row">
+    <div class="w3-col m3 l3 s3 ">Імʼя:</div>
+    <div class="w3-col m9 l9 s9">
+      <input ng-model="registry.data.first_name" placeholder="Імʼя"
+        class="w3-border am-width-100pr" >
+    </div>
+  </div>
+  <div class="w3-row">
+    <div class="w3-col m3 l3 s3 ">Побатькові:</div>
+    <div class="w3-col m9 l9 s9">
+      <input ng-model="registry.data.second_name" placeholder="Побатькові"
+        class="w3-border am-width-100pr" >
+    </div>
+  </div>
+	<div class="w3-row">
+		<div class="w3-col m3 l3 s3 ">дата народження:</div>
+		<div class="w3-col m9 l9 s9">
+			<input ng-model="registry.data.birth_date"
+				ng-blur="registry.dateControlle('birth_date')"
+				placeholder="дд-мм-рррр дата народженя" class="w3-border">
+			{{registry.data.bd|date:'mediumDate'}}
+			<div class="w3-red w3-small" ng-if="registry.error.birth_date">
+				{{registry.error.birth_date}}</div>
+		</div>
+	</div>
+	<p>
+		<input class="w3-btn w3-border w3-round" value="Запис"
+			ng-click="registry.saveRegistry()">
+	</p>
+</form>

@@ -1,0 +1,16 @@
+{
+  "registry1":{
+  "th_template": "template1",
+    "ng_template": "'/f/pis1-am-1/registry1/registry1.html'",
+    "script": "/f/pis1-am-1/common1/common1.js",
+    "title": "Регістрація",
+    "parent": "home"
+  },
+	"login1": {
+		"th_template": "template1",
+		"ng_template": "'/f/algoritmed/lib/login1.html'",
+		"script": "/f/pis1-am-1/common1/common1.js",
+		"title": "Логін",
+		"parent": "home"
+	}
+}
