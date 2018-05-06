@@ -1,4 +1,12 @@
 console.log('------login1.js-----------------');
+init_am_directive.init_registry2=function($scope, $http){
+	console.log('------init_am_directive.init_registry2-----------------');
+	var data={sql:'sql2.users.activateLogin',uuid:$scope.request.parameters.uuid}
+	$http.post('/r/update2_sql_with_param', data).then(function(response) {
+		console.log(response.data);
+	});
+}
+
 init_am_directive.init_registry1=function($scope, $http){
 	$scope.registry={data:{},error:{}};
 	

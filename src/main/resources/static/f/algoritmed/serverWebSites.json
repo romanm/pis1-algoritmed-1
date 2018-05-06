@@ -10,7 +10,7 @@
     "th_template": "template1",
     "ng_template": "'/f/pis1-am-1/registry1/registry2.html'",
     "script": "/f/pis1-am-1/common1/common1.js",
-    "title": "Регістрація",
+    "title": "Активація аккаунта",
     "parent": "home"
   },
 	"login1": {
