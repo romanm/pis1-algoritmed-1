@@ -7,14 +7,20 @@
 <script src="/webjars/angularjs/1.6.9/angular.min.js"></script>
 <script src="/webjars/angularjs/1.6.9/angular-sanitize.min.js"></script>
 <script src="/f/algoritmed/compile-algoritmed2.js"></script>
+<script src="/f/pis1-am-1/common1/index.js"></script>
 <link rel="stylesheet" href="/f/css/w3.css">
+<link rel="stylesheet" href="/f/css/algoritmed.css">
 <link rel="stylesheet"
 	href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="icon" href="/f/img/ehalthinua-falicon.ico" type="image/x-icon">
 </head>
 <body class="w3-container" ng-controller="ControllerApp1">
 	<div ng-include="'/f/algoritmed/lib/home-page-head.html'"></div>
-	<i> {{principal.name}} </i>
+	 <div
+	 ng-if="hasRolePatient"
+	 ng-include="'/f/pis1-am-1/index1/patient-page1.html'"
+	 >
+	 </div>
 	<div ng-if="!principal.name">
 		<a href="/v/login1"> Логін </a> або <a href="/v/registry1">
 			регістрація </a> в системі.

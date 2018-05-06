@@ -2,7 +2,7 @@
 	class="fa fa-home"></i></a>
 <span class="w3-right w3-tiny"> <a ng-if="!principal.name"
 	href="/v/login1"> <i class="fa fa-sign-in"></i> Вхід
-</a> <a ng-if="principal.name" href="/logout"> <i class="fa fa-sign-out"></i>
-		Вихід
+</a> <a ng-if="principal.name" href="/logout"> <i>
+			{{principal.name}} </i> <i class="fa fa-sign-out"></i> Вихід
 </a>
 </span>
