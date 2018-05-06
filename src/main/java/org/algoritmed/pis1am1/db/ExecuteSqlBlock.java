@@ -139,7 +139,8 @@ public class ExecuteSqlBlock {
 
 			for (Integer key : nextDbMap.keySet())
 				data.put("nextDbId"+key, nextDbId());
-			if(data.containsKey("uuid"))
+			
+			if(data.containsKey("uuid")&&data.get("uuid").equals("uuid"))
 				data.put("uuid", UUID.randomUUID());
 			System.err.println(data);
 		}
