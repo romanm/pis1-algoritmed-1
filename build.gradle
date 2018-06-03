@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.1.RELEASE'
+		springBootVersion = '2.0.2.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -35,6 +35,6 @@ dependencies {
 	testCompile('org.springframework.security:spring-security-test')
 	
 	compile 'org.webjars:font-awesome:4.7.0'
-  compile 'org.webjars:angularjs:1.6.9'
+  compile 'org.webjars:angularjs:1.7.0'
   
 }
